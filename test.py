@@ -1,7 +1,14 @@
 import math
 file,file1=open("one.txt","r"),open("two.txt","r")
-f1,f2=file.read(),file1.read()
-l1,l2=f1.split(),f2.split()
+f1,f2=file.read().lower(),file1.read().lower()
+def ch(l):
+	a=''
+	for c in l:
+		if ord(c)>=97 and ord(c)<=122:
+			a+=c
+		else:
+			a+=' '
+	return a
 def dic(s):
 	d={}
 	for c in s:
@@ -26,9 +33,10 @@ def dot(e,f):
 				mul=e[i]*f[j]
 				sum=sum+mul
 	return sum
-e,f=dic(l1),dic(l2)
+g=(ch(f1).split())
+print("g=",g)
+h=(ch(f2).split())
+print("h=",h)
+e,f=dic(g),dic(h)
 t=norm(e,f)
 print("pliagarism of two files is",(dot(e,f)/t)*100,"%")
-
-
-
