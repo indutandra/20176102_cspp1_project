@@ -3,11 +3,13 @@ file,file1=open("one.txt","r"),open("two.txt","r")
 f1,f2=file.read().lower(),file1.read().lower()
 def ch(l):
 	a=''
-	for c in l:
-		if ord(c)>=97 and ord(c)<=122:
-			a+=c
+	for c in range(len(l)):
+		if ord(l[c])>=97 and ord(l[c])<=122:
+			a+=l[c]
+		elif ord(l[c])==32:
+			a+=l[c]
 		else:
-			a+=' '
+			c+=1
 	return a
 def dic(s):
 	d={}
@@ -33,9 +35,9 @@ def dot(e,f):
 				mul=e[i]*f[j]
 				sum=sum+mul
 	return sum
-g=(ch(f1).split())
+g=(ch(f1).split(" "))
 print("g=",g)
-h=(ch(f2).split())
+h=(ch(f2).split(" "))
 print("h=",h)
 e,f=dic(g),dic(h)
 t=norm(e,f)
