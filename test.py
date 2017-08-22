@@ -1,6 +1,5 @@
 import math
-file,file1=open("two.txt","r"),open("one.txt","r")
-f1,f2=file.read().lower(),file1.read().lower()
+import os
 def ch(l):
 	a=''
 	for c in range(len(l)):
@@ -28,7 +27,7 @@ def norm(e,f):
 	for j in f:
 		sum2+=(f[j]**2)
 	m1,m2=math.sqrt(sum1),math.sqrt(sum2)
-	return m1*m2
+	return float(m1*m2)
 def dot(e,f):
 	sum=0
 	for i in e:
@@ -37,8 +36,22 @@ def dot(e,f):
 				mul=e[i]*f[j]
 				sum=sum+mul
 	return sum
-g=(ch(f1).split(" "))
-h=(ch(f2).split(" "))
-e,f=dic(g),dic(h)
-t=norm(e,f)
-print("pliagarism of two files is",(dot(e,f)/t)*100,"%")
+path=input()
+l=os.listdir(path)
+os.chdir(path)
+for i in range(len(l)):
+	ll=[]
+	for j in range(len(l)):
+		if l[i]!=l[j]:
+			f1=open(l[i],"r").read().lower()
+			k=ch(f1).split()
+			w=dic(k)
+			f2=open(l[j],"r").read().lower()
+			y=ch(f2).split()
+			z=dic(y)
+			nor=norm(w,z)
+			do=dot(w,z)
+			ll.append((do/nor)*100)
+		else:
+			ll.append('null')
+	print(ll)
