@@ -18,7 +18,8 @@ def ch(l):
 				if 48<=ord(l[c])<=57 or 97<=ord(l[c])<=122 or ord(l[c])==95 or ord(l[c])==32:
 			 		a+=l[c]
 				else:
-					c+=1			
+					c+=1
+	a+=l[-1]			
 	return a
 def dic(s):
 	d={}
@@ -62,4 +63,6 @@ for i in range(len(l)):
 			ll.append((do/nor)*100)
 		else:
 			ll.append('null')
+	print(k)
+	print(w)
 	print(ll)

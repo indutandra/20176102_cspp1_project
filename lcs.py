@@ -17,7 +17,7 @@ def lcs(l,l1):
 				i+=1
 				j+=1
 			b=' '.join(a)
-			b=b.strip()
+			#b=b.strip()
 			if len(b)>lcs:
 				lcs=len(b)
 	lcs1=((lcs*2)/((len(f1)+len(f2))))*100

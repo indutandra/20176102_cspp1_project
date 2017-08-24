@@ -1,6 +1,6 @@
 def ch(l):
 	a=''
-	for c in range(len(l)):
+	for c in range(len(l)-1):
 		if c==0:
 			a+=l[c]
 		elif c==l[len(l)-1]:
@@ -25,3 +25,7 @@ def ch(l):
 					a+=l[c]
 				else:
 					c+=1
+	a+=l[-1]
+	return a
+l="to b@e @not to $be"
+print(ch(l))
