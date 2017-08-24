@@ -2,15 +2,23 @@ import math
 import os
 def ch(l):
 	a=''
-	for c in range(len(l)):
-		if ord(l[c])>=97 and ord(l[c])<=122:
+	for c in range(len(l)-1):
+		if c==0:
 			a+=l[c]
-		elif ord(l[c])==95 or ord(l[c])==32:
-			a+=l[c]
-		elif ord(l[c])>=48 and ord(l[c])<=57:
+		elif c==l[len(l)-1]:
 			a+=l[c]
 		else:
-			c+=1
+			if ord(l[c+1])==32 or ord(l[c-1])==32:
+				if 97<=ord(l[c])<=122 or 48<=ord(l[c])<=57 or ord(l[c])==95 or ord(l[c])==32:
+			 		a+=l[c]
+				else:
+					a+=" "
+					c+=1
+			else:
+				if 48<=ord(l[c])<=57 or 97<=ord(l[c])<=122 or ord(l[c])==95 or ord(l[c])==32:
+			 		a+=l[c]
+				else:
+					c+=1			
 	return a
 def dic(s):
 	d={}
