@@ -1,31 +1,19 @@
-def ch(l):
-	a=''
-	for c in range(len(l)-1):
-		if c==0:
-			a+=l[c]
-		elif c==l[len(l)-1]:
-			a+=l[c]
-		else:
-			if ord(l[c+1])==32 or ord(l[c-1])==32:
-				if ord(l[c])>=97 and ord(l[c])<=122:
-			 		a+=l[c]
-				elif (ord(l[c])==95 or ord(l[c])==32):
-					a+=l[c]
-				elif (ord(l[c])>=48 and ord(l[c])<=57):
-					a+=l[c]
-				else:
-					a+=" "
-					c+=1			
-			else:
-				if ord(l[c])>=97 and ord(l[c])<=122:
-			 		a+=l[c]
-				elif (ord(l[c])==95 or ord(l[c])==32):
-					a+=l[c]
-				elif (ord(l[c])>=48 and ord(l[c])<=57):
-					a+=l[c]
-				else:
-					c+=1
-	a+=l[-1]
-	return a
-l="to b@e @not to $be"
-print(ch(l))
+n = int(input().strip())
+l=[]
+while(n > 0):
+    remainder = n%2
+    n = n//2
+    l.append(remainder)
+print(l)
+s=0
+c=[]
+for i in l:
+	if i==1:
+		s=s+1
+		c.append(s)
+	else:
+		c.append(s)
+		s=0
+
+print(max(c))
+
